@@ -1,31 +1,39 @@
-using DotNetEnv; // Si estás usando DotNetEnv para cargar variables del .env
+using DotNetEnv;
 using Microsoft.AspNetCore.Mvc;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cargar variables del archivo .env
-Env.Load();
+// Ruta al archivo .env en la carpeta anterior
+string envFilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, ".env");
+// Intentamos cargar las variables de entorno desde la ruta especificada
+Env.Load(envFilePath);
 
 // Leer variables de entorno desde el archivo .env
-var backendHost = Environment.GetEnvironmentVariable("BACKEND_HOST") ?? "localhost";
-var backendPort = Environment.GetEnvironmentVariable("BACKEND_PORT") ?? "5000"; // Valor por defecto
+var dbHost = Environment.GetEnvironmentVariable("DB_HOST") ?? "localhost";
+var dbPort = Environment.GetEnvironmentVariable("DB_PORT") ?? "5432";
+var dbUser = Environment.GetEnvironmentVariable("DB_USER") ?? "usuario";
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "contraseña";
+var dbName = Environment.GetEnvironmentVariable("DB_NAME") ?? "mi_base_de_datos";
 
-// Construir la URL del backend
-var backendUrl = $"http://{backendHost}:{backendPort}";
+// Crear la cadena de conexión
+var connectionString = $"Host={dbHost};Port={dbPort};Username={dbUser};Password={dbPassword};Database={dbName}";
 
-// Configurar CORS para permitir el acceso desde el frontend (ajusta el puerto si es necesario)
+// Crear y abrir una conexión a la base de datos
+using var connection = new NpgsqlConnection(connectionString);
+connection.Open();
+
+// Configurar CORS para permitir el acceso desde el frontend
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        // Usar la URL del frontend desde el archivo .env
         var frontendHost = Environment.GetEnvironmentVariable("VITE_BACKEND_HOST") ?? "http://localhost";
-        var frontendPort = Environment.GetEnvironmentVariable("VITE_BACKEND_PORT") ?? "5136"; // Valor por defecto
+        var frontendPort = Environment.GetEnvironmentVariable("VITE_BACKEND_PORT") ?? "5136";
 
         var frontendUrl = $"{frontendHost}:{frontendPort}";
 
-        // Configurar CORS con la URL del frontend
-        policy.AllowAnyOrigin() //ACÁ SE PUEDE HACER PETICION DESDE CUALQUIER LADO, CAMBIAR DESPUES?????
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
     });

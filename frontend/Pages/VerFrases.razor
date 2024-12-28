@@ -1,0 +1,49 @@
+@page "/verFrases"
+@inject HttpClient Http
+
+<h3>Frases desde el backend</h3>
+
+@if (frases == null)
+{
+    <p>Cargando frases...</p>
+}
+else if (!frases.Any())
+{
+    <p>No se encontraron frases.</p>
+}
+else
+{
+    <ul>
+        @foreach (var frase in frases)
+        {
+            <li>@frase.Contenido</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<FraseDto>? frases;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Hacer la consulta al backend para obtener las frases
+            var response = await Http.GetFromJsonAsync<List<FraseDto>>("api/PedirNombreBD");
+            frases = response ?? new List<FraseDto>();  // Si la respuesta es nula, asignamos una lista vacía
+        }
+        catch (Exception ex)
+        {
+            frases = new List<FraseDto>
+            {
+                new FraseDto { Contenido = $"Error al obtener las frases: {ex.Message}" }
+            };
+        }
+    }
+
+    public class FraseDto
+    {
+        public int Id { get; set; }
+        public string Contenido { get; set; } = string.Empty;
+    }
+}

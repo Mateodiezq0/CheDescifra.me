@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "W:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj": {}
+    "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj": {}
   },
   "projects": {
-    "W:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "W:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\M6ew4sh3re\\.nuget\\packages\\",
-        "outputPath": "W:\\Proyectos-Git\\CheDescifra.me\\backend\\obj\\",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M6ew4sh3re\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -51,6 +51,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             }
           },
           "imports": [
