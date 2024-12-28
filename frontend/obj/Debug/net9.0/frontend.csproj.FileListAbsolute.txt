@@ -3263,10 +3263,10 @@ C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\frontend
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\refint\frontend.dll
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\frontend.pdb
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\ref\frontend.dll
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.lzxyd1pm6d.pdb
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.je6zwbyan3.wasm
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.lzxyd1pm6d.pdb.gz
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.je6zwbyan3.wasm.gz
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\qfulij7c2m-je6zwbyan3.gz
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\e1rpvsmwzk-lzxyd1pm6d.gz
-C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\4odag4e21d-tvfkwgtjry.gz
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.lecdpn6ndp.pdb
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.bbjj4ahr3q.wasm
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.lecdpn6ndp.pdb.gz
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.bbjj4ahr3q.wasm.gz
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\qfulij7c2m-bbjj4ahr3q.gz
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\e1rpvsmwzk-lecdpn6ndp.gz
+C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\4odag4e21d-ukjowurwaa.gz

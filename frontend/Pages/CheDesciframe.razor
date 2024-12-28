@@ -1,0 +1,101 @@
+@page "/CheDesciframe"
+@inject HttpClient Http
+
+<h3>Juego "Decipher": Adivina la frase original</h3>
+
+@if (frase == null)
+{
+    <p>Cargando frase...</p>
+}
+else
+{
+    <div>
+        <p><strong>Frase Cifrada: </strong></p>
+        <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+            @for (int i = 0; i < letrasCifradas.Count; i++)
+            {
+                if (char.IsLetter(frase.Contenido[i]))
+                {
+                    <div style="border: 2px solid black; width: 50px; height: 50px; text-align: center; position: relative;">
+                        <input type="text" maxlength="1" value="@letrasCifradas[i]" @oninput="(e) => ActualizarLetra(i, e.Value?.ToString())" style="width: 100%; height: 100%; font-size: 24px; text-align: center; border: none; background-color: transparent;" />
+                        <span style="position: absolute; bottom: -20px; left: 0; right: 0; font-size: 12px; color: grey;">@frase.Contenido[i].ToString().ToUpper()</span>
+                    </div>
+                }
+                else
+                {
+                    <div style="width: 50px; height: 50px; text-align: center;">@frase.Contenido[i]</div>
+                }
+            }
+        </div>
+        <div class="attempts">Intentos: @intentos</div>
+        @if (mensajeResultado != null)
+        {
+            <div>@mensajeResultado</div>
+        }
+        @if (!letrasCifradas.Contains("_"))
+        {
+            <div><strong>¡Felicidades! Has descifrado la frase correctamente.</strong></div>
+        }
+    </div>
+}
+
+@code {
+    private FraseDto? frase;
+    private List<string> letrasCifradas = new();
+    private int intentos = 0;
+    private string? mensajeResultado = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Hacer la consulta al backend para obtener una frase aleatoria
+            var response = await Http.GetFromJsonAsync<FraseDto>("api/PedirFraseRandom/random");
+            frase = response;
+
+            if (frase != null)
+            {
+                // Inicializar la lista de letras cifradas
+                letrasCifradas = frase.Contenido.Select(c => char.IsLetter(c) ? "_" : c.ToString()).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            frase = new FraseDto { Contenido = $"Error al obtener la frase: {ex.Message}" };
+        }
+    }
+
+    private void ActualizarLetra(int index, string? letraIngresada)
+    {
+        if (index < 0 || index >= letrasCifradas.Count || string.IsNullOrWhiteSpace(letraIngresada))
+        {
+            return;
+        }
+
+        letraIngresada = letraIngresada.ToLower();
+        var letraOriginal = frase!.Contenido[index].ToString().ToLower();
+
+        if (letraIngresada == letraOriginal)
+        {
+            for (int i = 0; i < frase.Contenido.Length; i++)
+            {
+                if (char.ToLower(frase.Contenido[i]) == letraIngresada[0])
+                {
+                    letrasCifradas[i] = frase.Contenido[i].ToString();
+                }
+            }
+            mensajeResultado = $"¡Correcto! Has adivinado la letra '{letraIngresada.ToUpper()}'." ;
+        }
+        else
+        {
+            intentos++;
+            mensajeResultado = $"Letra '{letraIngresada.ToUpper()}' no encontrada. ¡Intenta nuevamente!";
+        }
+    }
+
+    public class FraseDto
+    {
+        public int Id { get; set; }
+        public string Contenido { get; set; } = string.Empty;
+    }
+}
