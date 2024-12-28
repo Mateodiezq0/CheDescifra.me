@@ -1,21 +1,17 @@
 # CheDescifra.me
 Decipher argentino
 
-Bueno, la tipica
+Bueno eeee
 
 
-Backend:
-
-cd .\backend
-npm install
-cd .\src
-node .\server.js
+ni idea si hay que hacer install en esta cosa xd
 
 
-Frontend:
+Para el back
+cd .\backend\
+dotnet run .\backend.csproj
+
+
+Para el front
 cd .\frontend\
-npm install
-npm run dev 
-(api en src\api.js)
-
-tuki tuki
+dotnet run .\frontend.csproj 

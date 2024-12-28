@@ -1,0 +1,35 @@
+@page "/fetch-data"
+@inject HttpClient Http
+
+<h3>Mensaje desde el backend</h3>
+
+@if (message == null)
+{
+    <p>Cargando mensaje...</p>
+}
+else
+{
+    <p>@message</p>
+}
+
+@code {
+    private string? message;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await Http.GetFromJsonAsync<MessageDto>("api/message");
+            message = response?.Message;  // Asegúrate de que 'message' existe en la respuesta
+        }
+        catch (Exception ex)
+        {
+            message = $"Error al obtener el mensaje: {ex.Message}";
+        }
+    }
+
+    public class MessageDto
+    {
+        public string Message { get; set; } = string.Empty;
+    }
+}
