@@ -10,7 +10,7 @@ namespace frontend.logic
         {
             CipherText = cipherText;
             SubstitutionMap = new Dictionary<char, char>();
-            DecryptedText = new string('', cipherText.Length);
+            DecryptedText = new string('_', cipherText.Length); // Inicializa con '_'
         }
 
         public void SetSubstitution(char cipherChar, char plainChar)
@@ -34,11 +34,11 @@ namespace frontend.logic
             {
                 if (SubstitutionMap.TryGetValue(CipherText[i], out char plainChar))
                 {
-                    decryptedArray[i] = plainChar;
+                    decryptedArray[i] = plainChar; // Sustituye si hay un mapeo
                 }
                 else
                 {
-                    decryptedArray[i] = '';
+                    decryptedArray[i] = '_'; // Sustituye con '_' si no hay mapeo
                 }
             }
 

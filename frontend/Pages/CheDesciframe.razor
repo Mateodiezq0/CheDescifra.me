@@ -33,7 +33,7 @@
 
     private string GetMappedChar(char cipherChar)
     {
-        return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : "_";
+        return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
     }
     
     private void UpdateSubstitution(char cipherChar, string? plainChar)
