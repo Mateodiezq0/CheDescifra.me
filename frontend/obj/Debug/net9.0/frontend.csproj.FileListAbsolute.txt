@@ -3263,10 +3263,10 @@ C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\qfulij7c2m-bbjj4ahr3q.gz
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\e1rpvsmwzk-lecdpn6ndp.gz
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\4odag4e21d-ukjowurwaa.gz
-W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.bsa5fbmn6b.pdb
-W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.9tyma8nliu.wasm
-W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.bsa5fbmn6b.pdb.gz
-W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.9tyma8nliu.wasm.gz
-W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\qfulij7c2m-9tyma8nliu.gz
-W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\e1rpvsmwzk-bsa5fbmn6b.gz
-W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\4odag4e21d-z8t8rendey.gz
+W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.solm490x20.pdb
+W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.oxrw4mc0zb.wasm
+W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.solm490x20.pdb.gz
+W:\Proyectos-Git\CheDescifra.me\frontend\bin\Debug\net9.0\wwwroot\_framework\frontend.oxrw4mc0zb.wasm.gz
+W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\qfulij7c2m-oxrw4mc0zb.gz
+W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\e1rpvsmwzk-solm490x20.gz
+W:\Proyectos-Git\CheDescifra.me\frontend\obj\Debug\net9.0\compressed\4odag4e21d-d4f7su499v.gz

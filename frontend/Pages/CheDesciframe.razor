@@ -2,51 +2,112 @@
 
 @using frontend.logic
 @inject NavigationManager Navigation
+@inject HttpClient Http
 
 <h3>Decipher Game</h3>
 
-<div style="font-family: monospace;">
-    @foreach (char c in gameLogic.CipherText)
-    {
-        if (char.IsLetter(c))
-        {
-            <input style="width: 30px; text-align: center;" maxlength="1" value="@GetMappedChar(c)" 
-                   @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" />
-        }
-        else
-        {
-            <span>@c</span>
-        }
-    }
-</div>
+@if (loading)
+{
+    <p>Cargando frase...</p>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p style="color: red;">@errorMessage</p>
+}
+else
+{
+    <!-- Contenedor principal -->
+    <div style="font-family: monospace;">
+        <!-- Primera fila: Casillas de texto para descifrar -->
+        <div style="display: flex; gap: 2px;">
+            @foreach (char c in gameLogic.EncodedText)
+            {
+                if (char.IsLetter(c))
+                {
+                    <input style="width: 30px; text-align: center;" maxlength="1" value="@GetMappedChar(c)" 
+                           @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" />
+                }
+                else
+                {
+                    <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
+                }
+            }
+        </div>
 
-<button @onclick="ResetGame" style="margin-top: 10px;">Reset</button>
+        <!-- Segunda fila: Letras codificadas como referencia -->
+        <div style="display: flex; gap: 2px; margin-top: 5px;">
+            @foreach (char c in gameLogic.EncodedText)
+            {
+                <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
+            }
+        </div>
+    </div>
+
+    <button @onclick="ResetGame" style="margin-top: 10px;">Reset</button>
+}
 
 @code {
-    private GameLogic gameLogic = new GameLogic("DEFAULT");
+    private GameLogic? gameLogic; // Lógica del juego
+    private bool loading = true; // Estado de carga
+    private string? errorMessage; // Mensaje de error
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        // Inicializa el juego con un texto cifrado
-        gameLogic = new GameLogic("YOUTUBE CYPHER TEXT");
+        try
+        {
+            // Realizar la solicitud HTTP para obtener la frase aleatoria
+            var response = await Http.GetFromJsonAsync<FraseDto>("api/PedirFraseRandom/random");
+
+            if (response != null && !string.IsNullOrEmpty(response.Contenido))
+            {
+                // Inicializar la lógica del juego con la frase obtenida
+                gameLogic = new GameLogic(response.Contenido.ToUpper()); // Convertimos a mayúsculas
+                loading = false;
+            }
+            else
+            {
+                errorMessage = "No se pudo obtener una frase válida del servidor.";
+                loading = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al obtener la frase: {ex.Message}";
+            loading = false;
+        }
     }
 
     private string GetMappedChar(char cipherChar)
     {
-        return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
+        // Obtener la letra descifrada o un espacio vacío si no está mapeada
+        return gameLogic?.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) == true 
+            ? plainChar.ToString() 
+            : string.Empty;
     }
-    
+
     private void UpdateSubstitution(char cipherChar, string? plainChar)
     {
-        if (!string.IsNullOrEmpty(plainChar) && char.IsLetter(plainChar[0]))
+        // Actualizar el mapeo de sustitución
+        if (gameLogic != null && !string.IsNullOrEmpty(plainChar) && char.IsLetter(plainChar[0]))
         {
-            gameLogic.SubstitutionMap[cipherChar] = plainChar[0];
+            gameLogic.SetSubstitution(cipherChar, plainChar[0]);
         }
     }
 
     private void ResetGame()
     {
-        gameLogic = new GameLogic("YOUTUBE CYPHER TEXT");
+        // Reiniciar el juego con la misma frase codificada
+        if (gameLogic != null)
+        {
+            gameLogic = new GameLogic(gameLogic.CipherText);
+        }
+    }
+
+    // Modelo para la respuesta del backend
+    public class FraseDto
+    {
+        public int Id { get; set; }
+        public string Contenido { get; set; } = string.Empty;
     }
 }
 
