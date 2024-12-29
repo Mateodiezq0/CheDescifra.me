@@ -1,6 +1,8 @@
 @page "/chedesciframe"
 
 @using frontend.logic
+@using System.Globalization
+@using System.Text
 @inject NavigationManager Navigation
 @inject HttpClient Http
 
@@ -61,7 +63,7 @@ else
             if (response != null && !string.IsNullOrEmpty(response.Contenido))
             {
                 // Inicializar la lógica del juego con la frase obtenida
-                gameLogic = new GameLogic(response.Contenido.ToUpper()); // Convertimos a mayúsculas
+                gameLogic = new GameLogic(response.Contenido); // El texto ya será normalizado
                 loading = false;
             }
             else
@@ -79,18 +81,24 @@ else
 
     private string GetMappedChar(char cipherChar)
     {
-        // Obtener la letra descifrada o un espacio vacío si no está mapeada
-        return gameLogic?.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) == true 
-            ? plainChar.ToString() 
-            : string.Empty;
+        // Verificar si gameLogic es null antes de intentar acceder a SubstitutionMap
+        if (gameLogic == null)
+        {
+            return string.Empty; // Retorna vacío si gameLogic es null
+        }
+        return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
     }
 
     private void UpdateSubstitution(char cipherChar, string? plainChar)
     {
         // Actualizar el mapeo de sustitución
-        if (gameLogic != null && !string.IsNullOrEmpty(plainChar) && char.IsLetter(plainChar[0]))
+        if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
         {
-            gameLogic.SetSubstitution(cipherChar, plainChar[0]);
+            var normalizedChar = RemoveDiacritics(plainChar)[0]; // Eliminar diacríticos
+            if (char.IsLetter(normalizedChar))
+            {
+                gameLogic.SetSubstitution(cipherChar, normalizedChar);
+            }
         }
     }
 
@@ -101,6 +109,23 @@ else
         {
             gameLogic = new GameLogic(gameLogic.CipherText);
         }
+    }
+
+    // Función alternativa para eliminar tildes
+    private string RemoveDiacritics(string text)
+    {
+        var normalizedText = text.Normalize(NormalizationForm.FormD);
+        var sb = new StringBuilder();
+
+        foreach (var c in normalizedText)
+        {
+            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
     }
 
     // Modelo para la respuesta del backend

@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+
 namespace frontend.logic
 {
     public class GameLogic
@@ -13,9 +19,27 @@ namespace frontend.logic
         public GameLogic(string plainText)
         {
             SubstitutionMap = new Dictionary<char, char>();
-            CipherText = plainText.ToUpper();
+            CipherText = NormalizeText(plainText); // Normalizar texto (sin tildes y en mayúsculas)
             EncodedText = GenerateEncodedText(CipherText); // Generar texto codificado
             DecryptedText = new string('_', CipherText.Length); // Inicializar con '_'
+        }
+
+        private string NormalizeText(string text)
+        {
+            // Quitar tildes y normalizar el texto
+            var normalized = text.Normalize(NormalizationForm.FormD);
+            var result = new StringBuilder();
+
+            foreach (var c in normalized)
+            {
+                // Mantener solo los caracteres base
+                if (char.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    result.Append(c);
+                }
+            }
+
+            return result.ToString().ToUpper(); // Convertir a mayúsculas
         }
 
         private string GenerateEncodedText(string text)
@@ -34,7 +58,7 @@ namespace frontend.logic
             // Aplicar el mapeo a todas las letras del texto
             var encodedText = text.Select(c =>
             {
-                if (char.IsLetter(c))
+                if (char.IsLetter(c) && Alphabet.Contains(c)) // Solo procesar letras
                     return encodingMap[c]; // Codificar letras
                 return c; // Conservar caracteres no alfabéticos
             }).ToArray();
@@ -73,5 +97,21 @@ namespace frontend.logic
 
             DecryptedText = new string(decryptedArray);
         }
+        private string RemoveDiacritics(string text)
+        {
+            var normalizedText = text.Normalize(NormalizationForm.FormD);
+            var sb = new StringBuilder();
+
+            foreach (var c in normalizedText)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(c);
+                }
+            }
+
+            return sb.ToString();
+        }
+
     }
 }
