@@ -4980,19 +4980,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
+    "C:\\Users\\M6ew4sh3re\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj",
+      "projectUniqueName": "w:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\backend.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\backend\\obj\\",
+      "projectPath": "w:\\Proyectos-Git\\CheDescifra.me\\backend\\backend.csproj",
+      "packagesPath": "C:\\Users\\M6ew4sh3re\\.nuget\\packages\\",
+      "outputPath": "w:\\Proyectos-Git\\CheDescifra.me\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\M6ew4sh3re\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"

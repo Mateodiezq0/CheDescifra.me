@@ -71,3 +71,4 @@ C:\Users\ASUS\Documents\GitHub\CheDescifra.me\backend\obj\Debug\net9.0\backend.p
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\backend\obj\Debug\net9.0\ref\backend.dll
 C:\Users\ASUS\Documents\GitHub\CheDescifra.me\backend\bin\Debug\net9.0\Npgsql.dll
+W:\Proyectos-Git\CheDescifra.me\backend\bin\Debug\net9.0\Npgsql.dll

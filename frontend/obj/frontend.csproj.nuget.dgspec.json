@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\frontend\\frontend.csproj": {}
+    "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\frontend\\frontend.csproj": {
+    "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\frontend\\frontend.csproj",
+        "projectUniqueName": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\frontend.csproj",
         "projectName": "frontend",
-        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\frontend\\frontend.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\CheDescifra.me\\frontend\\obj\\",
+        "projectPath": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\frontend.csproj",
+        "packagesPath": "C:\\Users\\M6ew4sh3re\\.nuget\\packages\\",
+        "outputPath": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\M6ew4sh3re\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -68,6 +68,10 @@
               "target": "Package",
               "version": "[9.0.0, )",
               "autoReferenced": true
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.4, )"
             }
           },
           "imports": [
