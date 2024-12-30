@@ -1,0 +1,147 @@
+@page "/chedesciframe"
+
+@using frontend.logic
+@using System.Globalization
+@using System.Text
+@inject NavigationManager Navigation
+@inject HttpClient Http
+
+<h3>Decipher Game</h3>
+
+@if (loading)
+{
+    <p>Cargando frase...</p>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p style="color: red;">@errorMessage</p>
+}
+else
+{
+    <!-- Contenedor principal -->
+    <div style="font-family: monospace;">
+        <!-- Primera fila: Casillas de texto para descifrar -->
+        <div style="display: flex; gap: 2px;">
+            @foreach (char c in gameLogic.EncodedText)
+            {
+                if (char.IsLetter(c))
+                {
+                    <input style="width: 30px; text-align: center;" maxlength="1" value="@GetMappedChar(c)" 
+                           @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" />
+                }
+                else
+                {
+                    <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
+                }
+            }
+        </div>
+
+        <!-- Segunda fila: Letras codificadas como referencia -->
+        <div style="display: flex; gap: 2px; margin-top: 5px;">
+            @foreach (char c in gameLogic.EncodedText)
+            {
+                <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
+            }
+        </div>
+    </div>
+
+    <button @onclick="ResetGame" style="margin-top: 10px;">Reset</button>
+}
+
+@code {
+    private GameLogic? gameLogic; // Lógica del juego
+    private bool loading = true; // Estado de carga
+    private string? errorMessage; // Mensaje de error
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Realizar la solicitud HTTP para obtener la frase aleatoria
+            var response = await Http.GetFromJsonAsync<FraseDto>("api/PedirFraseRandom/random");
+
+            if (response != null && !string.IsNullOrEmpty(response.Contenido))
+            {
+                // Inicializar la lógica del juego con la frase obtenida
+                gameLogic = new GameLogic(response.Contenido); // El texto ya será normalizado
+                loading = false;
+            }
+            else
+            {
+                errorMessage = "No se pudo obtener una frase válida del servidor.";
+                loading = false;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error al obtener la frase: {ex.Message}";
+            loading = false;
+        }
+    }
+
+    private string GetMappedChar(char cipherChar)
+    {
+        // Verificar si gameLogic es null antes de intentar acceder a SubstitutionMap
+        if (gameLogic == null)
+        {
+            return string.Empty; // Retorna vacío si gameLogic es null
+        }
+        return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
+    }
+
+    private void UpdateSubstitution(char cipherChar, string? plainChar)
+    {
+        // Actualizar el mapeo de sustitución
+        if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
+        {
+            var normalizedChar = RemoveDiacritics(plainChar)[0]; // Eliminar diacríticos
+            if (char.IsLetter(normalizedChar))
+            {
+                gameLogic.SetSubstitution(cipherChar, normalizedChar);
+            }
+        }
+    }
+
+    private void ResetGame()
+    {
+        // Reiniciar el juego con la misma frase codificada
+        if (gameLogic != null)
+        {
+            gameLogic = new GameLogic(gameLogic.CipherText);
+        }
+    }
+
+    // Función alternativa para eliminar tildes
+    private string RemoveDiacritics(string text)
+    {
+        var normalizedText = text.Normalize(NormalizationForm.FormD);
+        var sb = new StringBuilder();
+
+        foreach (var c in normalizedText)
+        {
+            if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+            {
+                sb.Append(c);
+            }
+        }
+
+        return sb.ToString();
+    }
+
+    // Modelo para la respuesta del backend
+    public class FraseDto
+    {
+        public int Id { get; set; }
+        public string Contenido { get; set; } = string.Empty;
+    }
+}
+
+<style>
+    input {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        margin: 2px;
+        font-size: 16px;
+    }
+</style>

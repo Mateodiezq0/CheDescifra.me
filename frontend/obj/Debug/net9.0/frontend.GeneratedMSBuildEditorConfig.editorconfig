@@ -28,6 +28,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[W:/Proyectos-Git/CheDescifra.me/frontend/Pages/CheDesciframe.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlRGVzY2lmcmFtZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [W:/Proyectos-Git/CheDescifra.me/frontend/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [W:/Proyectos-Git/CheDescifra.me/frontend/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[W:/Proyectos-Git/CheDescifra.me/frontend/Pages/VerFrases.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyRnJhc2VzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [W:/Proyectos-Git/CheDescifra.me/frontend/_Imports.razor]
