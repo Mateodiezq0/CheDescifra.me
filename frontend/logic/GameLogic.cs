@@ -10,19 +10,44 @@ namespace frontend.logic
     {
         public string CipherText { get; private set; } // Texto cifrado que se muestra
         public string EncodedText { get; private set; } // Texto codificado (base para referencia)
-        public Dictionary<char, char> SubstitutionMap { get; private set; } // Mapa de sustitución
+        public Dictionary<char, char> SubstitutionMap { get; private set; } // Mapa de sustitución del usuario
+        public Dictionary<char, char> OriginalSubstitutionMap { get; set; } // Mapa original de sustitución
 
         public string DecryptedText { get; private set; } // Texto descifrado por el usuario
 
-        private static readonly string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //private static readonly string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         public GameLogic(string plainText)
         {
-            SubstitutionMap = new Dictionary<char, char>();
-            CipherText = NormalizeText(plainText); // Normalizar texto (sin tildes y en mayúsculas)
-            EncodedText = GenerateEncodedText(CipherText); // Generar texto codificado
-            DecryptedText = new string('_', CipherText.Length); // Inicializar con '_'
+            // Normalizar el texto plano para eliminar tildes y caracteres especiales
+            CipherText = NormalizeText(plainText); 
+
+            // Generar el texto codificado y el mapa original de sustitución
+            OriginalSubstitutionMap = GenerateOriginalSubstitutionMap(CipherText, out string encodedText);
+            EncodedText = encodedText;
+
+            // Inicializar el mapa de sustitución del usuario solo con las letras relevantes
+            SubstitutionMap = OriginalSubstitutionMap.Keys.ToDictionary(key => key, _ => ' ');
+
+            // Inicializar el texto descifrado con espacios
+            DecryptedText = new string(' ', CipherText.Length);
         }
+
+        public bool IsGameWon()
+        {
+            foreach (var pair in OriginalSubstitutionMap)
+            {
+                // Verificar si el mapa del usuario contiene la relación inversa
+                if (!SubstitutionMap.TryGetValue(pair.Value, out char originalKey) || originalKey != pair.Key)
+                {
+                    return false; // Si no coincide, el juego no está ganado
+                }
+            }
+
+            return true; // Todos los pares coinciden
+        }
+
+
 
         private string NormalizeText(string text)
         {
@@ -42,28 +67,33 @@ namespace frontend.logic
             return result.ToString().ToUpper(); // Convertir a mayúsculas
         }
 
-        private string GenerateEncodedText(string text)
+        private Dictionary<char, char> GenerateOriginalSubstitutionMap(string text, out string encodedText)
         {
-            // Generar un mapeo aleatorio para el alfabeto
-            var random = new Random();
-            var shuffledAlphabet = Alphabet.OrderBy(_ => random.Next()).ToArray();
+            // Extraer las letras únicas del texto
+            var uniqueChars = new HashSet<char>(text.Where(char.IsLetter));
 
-            // Crear un diccionario de sustitución basado en el alfabeto aleatorio
-            var encodingMap = new Dictionary<char, char>();
-            for (int i = 0; i < Alphabet.Length; i++)
+            // Generar un alfabeto aleatorio limitado a las letras únicas del texto
+            var random = new Random();
+            var shuffledChars = uniqueChars.OrderBy(_ => random.Next()).ToArray();
+
+            // Crear el mapa original de sustitución
+            var originalMap = new Dictionary<char, char>();
+            int index = 0;
+            foreach (var c in uniqueChars)
             {
-                encodingMap[Alphabet[i]] = shuffledAlphabet[i];
+                originalMap[c] = shuffledChars[index++];
             }
 
-            // Aplicar el mapeo a todas las letras del texto
-            var encodedText = text.Select(c =>
+            // Generar el texto codificado usando el mapa de sustitución
+            var encodedArray = text.Select(c =>
             {
-                if (char.IsLetter(c) && Alphabet.Contains(c)) // Solo procesar letras
-                    return encodingMap[c]; // Codificar letras
+                if (originalMap.ContainsKey(c)) // Solo procesar letras en el mapa
+                    return originalMap[c]; // Codificar la letra
                 return c; // Conservar caracteres no alfabéticos
             }).ToArray();
 
-            return new string(encodedText);
+            encodedText = new string(encodedArray);
+            return originalMap;
         }
 
         public void SetSubstitution(char cipherChar, char plainChar)
@@ -74,7 +104,7 @@ namespace frontend.logic
             }
             else
             {
-                SubstitutionMap.Add(cipherChar, plainChar);
+                throw new ArgumentException($"El carácter '{cipherChar}' no es válido para esta partida.");
             }
 
             UpdateDecryptedText();
@@ -82,35 +112,17 @@ namespace frontend.logic
 
         private void UpdateDecryptedText()
         {
-            var decryptedArray = CipherText.ToCharArray();
-            for (int i = 0; i < CipherText.Length; i++)
+            // Construir el texto descifrado basado en el mapa de sustitución
+            var decryptedArray = CipherText.Select(c =>
             {
-                if (SubstitutionMap.TryGetValue(CipherText[i], out char plainChar))
+                if (SubstitutionMap.TryGetValue(c, out char plainChar) && plainChar != ' ')
                 {
-                    decryptedArray[i] = plainChar; // Sustituir si hay un mapeo
+                    return plainChar; // Sustituir con el carácter mapeado
                 }
-                else
-                {
-                    decryptedArray[i] = '_'; // Sustituir con '_' si no hay mapeo
-                }
-            }
+                return ' '; // Si no hay mapeo, usar un espacio
+            }).ToArray();
 
             DecryptedText = new string(decryptedArray);
-        }
-        private string RemoveDiacritics(string text)
-        {
-            var normalizedText = text.Normalize(NormalizationForm.FormD);
-            var sb = new StringBuilder();
-
-            foreach (var c in normalizedText)
-            {
-                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
-                {
-                    sb.Append(c);
-                }
-            }
-
-            return sb.ToString();
         }
 
     }

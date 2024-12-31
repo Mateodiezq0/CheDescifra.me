@@ -5,6 +5,8 @@
 @using System.Text
 @inject NavigationManager Navigation
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
+
 
 <h3>Decipher Game</h3>
 
@@ -16,6 +18,10 @@ else if (!string.IsNullOrEmpty(errorMessage))
 {
     <p style="color: red;">@errorMessage</p>
 }
+else if (gameWon)
+{
+    <p style="color: green; font-size: 24px;">¡Ganaste!</p>
+}
 else
 {
     <!-- Contenedor principal -->
@@ -26,8 +32,13 @@ else
             {
                 if (char.IsLetter(c))
                 {
-                    <input style="width: 30px; text-align: center;" maxlength="1" value="@GetMappedChar(c)" 
-                           @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" />
+                    <input 
+                        id="input-@c" 
+                        style="width: 30px; text-align: center;" 
+                        maxlength="1" 
+                        value="@GetMappedChar(c)" 
+                        @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" 
+                    />
                 }
                 else
                 {
@@ -45,6 +56,10 @@ else
         </div>
     </div>
 
+    <p>Estado del juego: @gameWon</p>
+
+    <button @onclick="DebugGameState">Debug State</button>
+
     <button @onclick="ResetGame" style="margin-top: 10px;">Reset</button>
 }
 
@@ -52,6 +67,32 @@ else
     private GameLogic? gameLogic; // Lógica del juego
     private bool loading = true; // Estado de carga
     private string? errorMessage; // Mensaje de error
+    private bool gameWon = false; // Estado de victoria
+
+    private void DebugGameState()
+    {
+        if (gameLogic != null)
+        {
+            var cipherText = gameLogic.CipherText;
+            var decryptedText = gameLogic.DecryptedText; // Usa la propiedad existente
+            var substitutionMap = gameLogic.SubstitutionMap;
+            var originalMap = gameLogic.OriginalSubstitutionMap;
+
+            var isWon = gameLogic.IsGameWon();
+
+            // Mostrar en consola los detalles clave
+            var debugData = new
+            {
+                CipherText = cipherText,
+                DecryptedText = decryptedText,
+                SubstitutionMap = substitutionMap,
+                OrigianlMap = originalMap,
+                IsWon = isWon
+            };
+
+            JSRuntime.InvokeVoidAsync("console.log", debugData);
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -81,37 +122,34 @@ else
 
     private string GetMappedChar(char cipherChar)
     {
-        // Verificar si gameLogic es null antes de intentar acceder a SubstitutionMap
-        if (gameLogic == null)
-        {
-            return string.Empty; // Retorna vacío si gameLogic es null
-        }
+        if (gameLogic == null) return string.Empty;
         return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
     }
 
     private void UpdateSubstitution(char cipherChar, string? plainChar)
     {
-        // Actualizar el mapeo de sustitución
         if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
         {
-            var normalizedChar = RemoveDiacritics(plainChar)[0]; // Eliminar diacríticos
+            var normalizedChar = RemoveDiacritics(plainChar)[0];
+
             if (char.IsLetter(normalizedChar))
             {
                 gameLogic.SetSubstitution(cipherChar, normalizedChar);
+                gameWon = gameLogic.IsGameWon(); // Usa la nueva lógica con comparación de mapas
+                StateHasChanged(); // Actualizar la UI
             }
         }
     }
 
     private void ResetGame()
     {
-        // Reiniciar el juego con la misma frase codificada
         if (gameLogic != null)
         {
             gameLogic = new GameLogic(gameLogic.CipherText);
+            gameWon = false; // Reiniciar estado de victoria
         }
     }
 
-    // Función alternativa para eliminar tildes
     private string RemoveDiacritics(string text)
     {
         var normalizedText = text.Normalize(NormalizationForm.FormD);
@@ -128,7 +166,6 @@ else
         return sb.ToString();
     }
 
-    // Modelo para la respuesta del backend
     public class FraseDto
     {
         public int Id { get; set; }
@@ -137,6 +174,11 @@ else
 }
 
 <style>
+    input:focus {
+        outline: 2px solid blue; /* Cambia el color según tus preferencias */
+        border-color: blue;
+    }
+
     input {
         border: 1px solid #ccc;
         border-radius: 3px;
