@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uLohjB9amudeJ+dFeW0c9fXebcrl8ZeYfgPZJ1JJ02Q=",
+  "Hash": "UyHeULgjOVKXyZuwneW1yJaWeR4SiLsZ4hFec/fqptU=",
   "Source": "frontend",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "ogoxkshogr",
-      "Integrity": "GI5U/vzDwBU2yniaBxokBI85rctYhegMyea1mBdKaPc=",
+      "Fingerprint": "g27i765ogj",
+      "Integrity": "uHzis9GVJLT2Ko7g7fxvh2//G5xxy8w1IoHBHDQ+XOM=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\blazor.boot.json"
@@ -220,8 +220,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "n3iik5s23c",
-      "Integrity": "3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8=",
+      "Fingerprint": "czakx92r6k",
+      "Integrity": "mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net9.0\\frontend.pdb"
@@ -241,8 +241,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "xtl0l4z0mk",
-      "Integrity": "e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI=",
+      "Fingerprint": "s06m5iscao",
+      "Integrity": "BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\webcil\\frontend.wasm"
@@ -4784,7 +4784,7 @@
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-ogoxkshogr.gz",
+      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-g27i765ogj.gz",
       "SourceId": "frontend",
       "SourceType": "Computed",
       "ContentRoot": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\",
@@ -4798,8 +4798,8 @@
       "RelatedAsset": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "g6n72e5o3n",
-      "Integrity": "6ASSns27W+XphERDZSWQZzzHWlat18f7a3Pe6qWKXAU=",
+      "Fingerprint": "d63zzxf599",
+      "Integrity": "1VHfGASJXpZrA2FcJh6LmVecZCcGCQAIxHr+qR7bKco=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -6338,12 +6338,12 @@
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.Net.Http.wasm"
     },
     {
-      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-n3iik5s23c.gz",
+      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-czakx92r6k.gz",
       "SourceId": "frontend",
       "SourceType": "Computed",
       "ContentRoot": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/frontend#[.{fingerprint=n3iik5s23c}]!.pdb.gz",
+      "RelativePath": "_framework/frontend#[.{fingerprint=czakx92r6k}]!.pdb.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -6352,8 +6352,8 @@
       "RelatedAsset": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "nxqmwch3li",
-      "Integrity": "JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k=",
+      "Fingerprint": "bddjw8hxsl",
+      "Integrity": "b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.pdb"
@@ -7955,12 +7955,12 @@
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\System.Security.Principal.Windows.wasm"
     },
     {
-      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-xtl0l4z0mk.gz",
+      "Identity": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-s06m5iscao.gz",
       "SourceId": "frontend",
       "SourceType": "Computed",
       "ContentRoot": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "_framework/frontend#[.{fingerprint=xtl0l4z0mk}]!.wasm.gz",
+      "RelativePath": "_framework/frontend#[.{fingerprint=s06m5iscao}]!.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -7969,8 +7969,8 @@
       "RelatedAsset": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "xocl3relhz",
-      "Integrity": "gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo=",
+      "Fingerprint": "k7wb7q9544",
+      "Integrity": "0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.wasm"
@@ -10789,7 +10789,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"GI5U/vzDwBU2yniaBxokBI85rctYhegMyea1mBdKaPc=\""
+          "Value": "\"uHzis9GVJLT2Ko7g7fxvh2//G5xxy8w1IoHBHDQ+XOM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uHzis9GVJLT2Ko7g7fxvh2//G5xxy8w1IoHBHDQ+XOM="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/blazor.boot.json",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-g27i765ogj.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000080411708"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "12435"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1VHfGASJXpZrA2FcJh6LmVecZCcGCQAIxHr+qR7bKco=\""
         },
         {
           "Name": "Last-Modified",
@@ -10798,45 +10837,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-GI5U/vzDwBU2yniaBxokBI85rctYhegMyea1mBdKaPc="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/blazor.boot.json",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-ogoxkshogr.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000080405242"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "12436"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6ASSns27W+XphERDZSWQZzzHWlat18f7a3Pe6qWKXAU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:39:16 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -10852,19 +10852,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"GI5U/vzDwBU2yniaBxokBI85rctYhegMyea1mBdKaPc=\""
+          "Value": "W/\"uHzis9GVJLT2Ko7g7fxvh2//G5xxy8w1IoHBHDQ+XOM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-GI5U/vzDwBU2yniaBxokBI85rctYhegMyea1mBdKaPc="
+          "Value": "sha256-uHzis9GVJLT2Ko7g7fxvh2//G5xxy8w1IoHBHDQ+XOM="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-ogoxkshogr.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\4odag4e21d-g27i765ogj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10873,7 +10873,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12436"
+          "Value": "12435"
         },
         {
           "Name": "Content-Type",
@@ -10881,11 +10881,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6ASSns27W+XphERDZSWQZzzHWlat18f7a3Pe6qWKXAU=\""
+          "Value": "\"1VHfGASJXpZrA2FcJh6LmVecZCcGCQAIxHr+qR7bKco=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:39:16 GMT"
+          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10903,7 +10903,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6ASSns27W+XphERDZSWQZzzHWlat18f7a3Pe6qWKXAU="
+          "Value": "sha256-1VHfGASJXpZrA2FcJh6LmVecZCcGCQAIxHr+qR7bKco="
         }
       ]
     },
@@ -13131,7 +13131,7 @@
       ]
     },
     {
-      "Route": "_framework/frontend.n3iik5s23c.pdb",
+      "Route": "_framework/frontend.czakx92r6k.pdb",
       "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.pdb",
       "Selectors": [],
       "ResponseHeaders": [
@@ -13141,7 +13141,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31932"
+          "Value": "32512"
         },
         {
           "Name": "Content-Type",
@@ -13149,11 +13149,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8=\""
+          "Value": "\"mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13163,7 +13163,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "n3iik5s23c"
+          "Value": "czakx92r6k"
         },
         {
           "Name": "label",
@@ -13171,18 +13171,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8="
+          "Value": "sha256-mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo="
         }
       ]
     },
     {
-      "Route": "_framework/frontend.n3iik5s23c.pdb",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-n3iik5s23c.gz",
+      "Route": "_framework/frontend.czakx92r6k.pdb",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-czakx92r6k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000042376473"
+          "Quality": "0.000041884817"
         }
       ],
       "ResponseHeaders": [
@@ -13192,15 +13192,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23597"
+          "Value": "23874"
         },
         {
           "Name": "ETag",
-          "Value": "\"JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k=\""
+          "Value": "\"b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13220,13 +13220,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8=\""
+          "Value": "W/\"mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "n3iik5s23c"
+          "Value": "czakx92r6k"
         },
         {
           "Name": "label",
@@ -13234,13 +13234,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8="
+          "Value": "sha256-mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo="
         }
       ]
     },
     {
-      "Route": "_framework/frontend.n3iik5s23c.pdb.gz",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-n3iik5s23c.gz",
+      "Route": "_framework/frontend.czakx92r6k.pdb.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-czakx92r6k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13249,7 +13249,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23597"
+          "Value": "23874"
         },
         {
           "Name": "Content-Type",
@@ -13257,11 +13257,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k=\""
+          "Value": "\"b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13279,7 +13279,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "n3iik5s23c"
+          "Value": "czakx92r6k"
         },
         {
           "Name": "label",
@@ -13287,7 +13287,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k="
+          "Value": "sha256-b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw="
         }
       ]
     },
@@ -13302,7 +13302,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "31932"
+          "Value": "32512"
         },
         {
           "Name": "Content-Type",
@@ -13310,11 +13310,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8=\""
+          "Value": "\"mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13324,18 +13324,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8="
+          "Value": "sha256-mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo="
         }
       ]
     },
     {
       "Route": "_framework/frontend.pdb",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-n3iik5s23c.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-czakx92r6k.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000042376473"
+          "Quality": "0.000041884817"
         }
       ],
       "ResponseHeaders": [
@@ -13345,15 +13345,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23597"
+          "Value": "23874"
         },
         {
           "Name": "ETag",
-          "Value": "\"JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k=\""
+          "Value": "\"b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13373,19 +13373,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8=\""
+          "Value": "W/\"mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-3cvXJALQYavcIZfehG8fb6OV49kQKVdPkNS5JDmpyk8="
+          "Value": "sha256-mNnwxemMmTxLoiWG2iFRJNHG0tnhGoWkmhXS2s60+Mo="
         }
       ]
     },
     {
       "Route": "_framework/frontend.pdb.gz",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-n3iik5s23c.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\e1rpvsmwzk-czakx92r6k.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13394,7 +13394,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "23597"
+          "Value": "23874"
         },
         {
           "Name": "Content-Type",
@@ -13402,11 +13402,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k=\""
+          "Value": "\"b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13424,12 +13424,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JS5EqyUAlWecCUK69B4CGD5P0Z+ts2URrKRbFaVvh8k="
+          "Value": "sha256-b1rNDX98acxAHkzaBnORZcQacQXVVl/WAUhptyZonRw="
         }
       ]
     },
     {
-      "Route": "_framework/frontend.wasm",
+      "Route": "_framework/frontend.s06m5iscao.wasm",
       "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.wasm",
       "Selectors": [],
       "ResponseHeaders": [
@@ -13439,7 +13439,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "32533"
+          "Value": "35093"
         },
         {
           "Name": "Content-Type",
@@ -13447,148 +13447,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI=\""
+          "Value": "\"BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/frontend.wasm",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-xtl0l4z0mk.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000069156293"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "14459"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/frontend.wasm.gz",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-xtl0l4z0mk.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "14459"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/frontend.xtl0l4z0mk.wasm",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.wasm",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "32533"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/wasm"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13598,7 +13461,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtl0l4z0mk"
+          "Value": "s06m5iscao"
         },
         {
           "Name": "label",
@@ -13606,18 +13469,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI="
+          "Value": "sha256-BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg="
         }
       ]
     },
     {
-      "Route": "_framework/frontend.xtl0l4z0mk.wasm",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-xtl0l4z0mk.gz",
+      "Route": "_framework/frontend.s06m5iscao.wasm",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-s06m5iscao.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000069156293"
+          "Quality": "0.000064570285"
         }
       ],
       "ResponseHeaders": [
@@ -13627,15 +13490,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14459"
+          "Value": "15486"
         },
         {
           "Name": "ETag",
-          "Value": "\"gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo=\""
+          "Value": "\"0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13655,13 +13518,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI=\""
+          "Value": "W/\"BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtl0l4z0mk"
+          "Value": "s06m5iscao"
         },
         {
           "Name": "label",
@@ -13669,13 +13532,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-e5yF551V9f7JEYyL8DZJgNS1RPLFwb3un33iSfGczbI="
+          "Value": "sha256-BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg="
         }
       ]
     },
     {
-      "Route": "_framework/frontend.xtl0l4z0mk.wasm.gz",
-      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-xtl0l4z0mk.gz",
+      "Route": "_framework/frontend.s06m5iscao.wasm.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-s06m5iscao.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -13684,7 +13547,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14459"
+          "Value": "15486"
         },
         {
           "Name": "Content-Type",
@@ -13692,11 +13555,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo=\""
+          "Value": "\"0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 31 Dec 2024 12:41:01 GMT"
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13714,7 +13577,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xtl0l4z0mk"
+          "Value": "s06m5iscao"
         },
         {
           "Name": "label",
@@ -13722,7 +13585,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gYIm1HRSKipkXZGjD2w860Z3ql6xBV7LF/wS21Bhgjo="
+          "Value": "sha256-0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/frontend.wasm",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\bin\\Debug\\net9.0\\wwwroot\\_framework\\frontend.wasm",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35093"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/frontend.wasm",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-s06m5iscao.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000064570285"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15486"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BMt1ffmlE8rRtgTnok3DFGo48jdx6Qt3lW0l6pNjhvg="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/frontend.wasm.gz",
+      "AssetFile": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\obj\\Debug\\net9.0\\compressed\\qfulij7c2m-s06m5iscao.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15486"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/wasm"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 31 Dec 2024 12:47:24 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0FajrzszBm5rC6eRCmWpbXyaFjlPhvMfXIUBZGj0nAg="
         }
       ]
     },

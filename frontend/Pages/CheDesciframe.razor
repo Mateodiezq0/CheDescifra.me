@@ -7,7 +7,6 @@
 @inject HttpClient Http
 @inject IJSRuntime JSRuntime
 
-
 <h3>Decipher Game</h3>
 
 @if (loading)
@@ -24,70 +23,122 @@ else if (gameWon)
 }
 else
 {
-    <!-- Contenedor principal -->
-    <div style="font-family: monospace;">
-        <!-- Primera fila: Casillas de texto para descifrar -->
-        <div style="display: flex; gap: 2px;">
-            @foreach (char c in gameLogic.EncodedText)
+    <!-- Primera fila: Casillas de texto para descifrar -->
+    <div style="display: flex; gap: 2px;">
+        @foreach (char c in gameLogic.EncodedText)
+        {
+            if (char.IsLetter(c))
             {
-                if (char.IsLetter(c))
-                {
-                    <input 
-                        id="input-@c" 
-                        style="width: 30px; text-align: center;" 
-                        maxlength="1" 
-                        value="@GetMappedChar(c)" 
-                        @oninput="(e) => UpdateSubstitution(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" 
-                    />
-                }
-                else
-                {
-                    <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
-                }
+                <input 
+                    id="input-@c" 
+                    style="width: 30px; text-align: center;" 
+                    maxlength="1" 
+                    value="@GetMappedChar(c)" 
+                    @oninput="(e) => HandleInput(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" 
+                    @onkeydown="(e) => HandleKeyDown(e, c)" 
+                />
             }
-        </div>
-
-        <!-- Segunda fila: Letras codificadas como referencia -->
-        <div style="display: flex; gap: 2px; margin-top: 5px;">
-            @foreach (char c in gameLogic.EncodedText)
+            else
             {
                 <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
             }
-        </div>
+        }
+    </div>
+
+    <!-- Segunda fila: Letras codificadas como referencia -->
+    <div style="display: flex; gap: 2px; margin-top: 5px;">
+        @foreach (char c in gameLogic.EncodedText)
+        {
+            <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
+        }
     </div>
 
     <p>Estado del juego: @gameWon</p>
 
     <button @onclick="DebugGameState">Debug State</button>
-
     <button @onclick="ResetGame" style="margin-top: 10px;">Reset</button>
 }
 
 @code {
-    private GameLogic? gameLogic; // Lógica del juego
-    private bool loading = true; // Estado de carga
-    private string? errorMessage; // Mensaje de error
-    private bool gameWon = false; // Estado de victoria
+    private GameLogic? gameLogic;
+    private bool loading = true;
+    private string? errorMessage;
+    private bool gameWon = false;
+
+    private void HandleInput(char cipherChar, string? plainChar)
+    {
+        if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
+        {
+            var normalizedChar = RemoveDiacritics(plainChar)[0];
+
+            if (char.IsLetter(normalizedChar))
+            {
+                gameLogic.SetSubstitution(cipherChar, normalizedChar);
+                gameWon = gameLogic.IsGameWon(); 
+                StateHasChanged();
+
+                // Mover al siguiente cuadro
+                _ = MoveToNextInput(cipherChar);
+            }
+        }
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e, char cipherChar)
+    {
+        if (e.Key == "ArrowRight")
+        {
+            await MoveToNextInput(cipherChar);
+        }
+        else if (e.Key == "ArrowLeft")
+        {
+            await MoveToPreviousInput(cipherChar);
+        }
+    }
+
+    private async Task MoveToNextInput(char currentChar)
+    {
+        int currentIndex = gameLogic.EncodedText.IndexOf(currentChar);
+        int nextIndex = currentIndex + 1;
+
+        while (nextIndex < gameLogic.EncodedText.Length && !char.IsLetter(gameLogic.EncodedText[nextIndex]))
+        {
+            nextIndex++;
+        }
+
+        if (nextIndex < gameLogic.EncodedText.Length)
+        {
+            char nextChar = gameLogic.EncodedText[nextIndex];
+            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{nextChar}').focus()");
+        }
+    }
+
+    private async Task MoveToPreviousInput(char currentChar)
+    {
+        int currentIndex = gameLogic.EncodedText.IndexOf(currentChar);
+        int previousIndex = currentIndex - 1;
+
+        while (previousIndex >= 0 && !char.IsLetter(gameLogic.EncodedText[previousIndex]))
+        {
+            previousIndex--;
+        }
+
+        if (previousIndex >= 0)
+        {
+            char previousChar = gameLogic.EncodedText[previousIndex];
+            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{previousChar}').focus()");
+        }
+    }
 
     private void DebugGameState()
     {
         if (gameLogic != null)
         {
-            var cipherText = gameLogic.CipherText;
-            var decryptedText = gameLogic.DecryptedText; // Usa la propiedad existente
-            var substitutionMap = gameLogic.SubstitutionMap;
-            var originalMap = gameLogic.OriginalSubstitutionMap;
-
-            var isWon = gameLogic.IsGameWon();
-
-            // Mostrar en consola los detalles clave
             var debugData = new
             {
-                CipherText = cipherText,
-                DecryptedText = decryptedText,
-                SubstitutionMap = substitutionMap,
-                OrigianlMap = originalMap,
-                IsWon = isWon
+                CipherText = gameLogic.CipherText,
+                DecryptedText = gameLogic.DecryptedText,
+                SubstitutionMap = gameLogic.SubstitutionMap,
+                IsWon = gameLogic.IsGameWon()
             };
 
             JSRuntime.InvokeVoidAsync("console.log", debugData);
@@ -98,13 +149,11 @@ else
     {
         try
         {
-            // Realizar la solicitud HTTP para obtener la frase aleatoria
             var response = await Http.GetFromJsonAsync<FraseDto>("api/PedirFraseRandom/random");
 
             if (response != null && !string.IsNullOrEmpty(response.Contenido))
             {
-                // Inicializar la lógica del juego con la frase obtenida
-                gameLogic = new GameLogic(response.Contenido); // El texto ya será normalizado
+                gameLogic = new GameLogic(response.Contenido);
                 loading = false;
             }
             else
@@ -126,27 +175,12 @@ else
         return gameLogic.SubstitutionMap.TryGetValue(cipherChar, out var plainChar) ? plainChar.ToString() : string.Empty;
     }
 
-    private void UpdateSubstitution(char cipherChar, string? plainChar)
-    {
-        if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
-        {
-            var normalizedChar = RemoveDiacritics(plainChar)[0];
-
-            if (char.IsLetter(normalizedChar))
-            {
-                gameLogic.SetSubstitution(cipherChar, normalizedChar);
-                gameWon = gameLogic.IsGameWon(); // Usa la nueva lógica con comparación de mapas
-                StateHasChanged(); // Actualizar la UI
-            }
-        }
-    }
-
     private void ResetGame()
     {
         if (gameLogic != null)
         {
             gameLogic = new GameLogic(gameLogic.CipherText);
-            gameWon = false; // Reiniciar estado de victoria
+            gameWon = false;
         }
     }
 
@@ -175,7 +209,7 @@ else
 
 <style>
     input:focus {
-        outline: 2px solid blue; /* Cambia el color según tus preferencias */
+        outline: 2px solid blue;
         border-color: blue;
     }
 
