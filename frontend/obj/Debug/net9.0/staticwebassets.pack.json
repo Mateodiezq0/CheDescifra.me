@@ -205,6 +205,10 @@
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },
     {
+      "Id": "W:\\Proyectos-Git\\CheDescifra.me\\frontend\\wwwroot\\scripts.js",
+      "PackagePath": "staticwebassets\\scripts.js"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.frontend.props",
       "PackagePath": "build\\frontend.props"
     },

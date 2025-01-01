@@ -25,24 +25,27 @@ else
 {
     <!-- Primera fila: Casillas de texto para descifrar -->
     <div style="display: flex; gap: 2px;">
-        @foreach (char c in gameLogic.EncodedText)
+        @for (int i = 0; i < gameLogic.EncodedText.Length; i++)
         {
+            var localIndex = i; // Captura el índice actual
+            char c = gameLogic.EncodedText[i];
             if (char.IsLetter(c))
             {
                 <input 
-                    id="input-@c" 
+                    id="input-@localIndex" 
                     style="width: 30px; text-align: center;" 
                     maxlength="1" 
                     value="@GetMappedChar(c)" 
-                    @oninput="(e) => HandleInput(c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" 
-                    @onkeydown="(e) => HandleKeyDown(e, c)" 
+                    @oninput="(e) => HandleInput(localIndex, c, ((ChangeEventArgs)e).Value?.ToString()?.ToUpper())" 
+                    @onkeydown="(e) => HandleKeyDown(e, localIndex)" 
+                    @onfocus="() => SelectContent(localIndex)"
                 />
             }
             else
             {
                 <span style="display: inline-block; width: 30px; text-align: center;">@c</span>
             }
-        }
+}
     </div>
 
     <!-- Segunda fila: Letras codificadas como referencia -->
@@ -65,7 +68,14 @@ else
     private string? errorMessage;
     private bool gameWon = false;
 
-    private void HandleInput(char cipherChar, string? plainChar)
+    private async Task SelectContent(int index)
+    {
+        await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{index}').select()");
+    }
+
+
+
+    private void HandleInput(int index, char cipherChar, string? plainChar)
     {
         if (gameLogic != null && !string.IsNullOrEmpty(plainChar))
         {
@@ -78,56 +88,59 @@ else
                 StateHasChanged();
 
                 // Mover al siguiente cuadro
-                _ = MoveToNextInput(cipherChar);
+                _ = MoveToNextInput(index);
             }
         }
     }
 
-    private async Task HandleKeyDown(KeyboardEventArgs e, char cipherChar)
+    private async Task HandleKeyDown(KeyboardEventArgs e, int index)
     {
         if (e.Key == "ArrowRight")
         {
-            await MoveToNextInput(cipherChar);
+            await MoveToNextInput(index);
         }
         else if (e.Key == "ArrowLeft")
         {
-            await MoveToPreviousInput(cipherChar);
+            await MoveToPreviousInput(index);
         }
     }
 
-    private async Task MoveToNextInput(char currentChar)
+    private async Task MoveToNextInput(int currentIndex)
     {
-        int currentIndex = gameLogic.EncodedText.IndexOf(currentChar);
         int nextIndex = currentIndex + 1;
+        JSRuntime.InvokeVoidAsync("console.log", currentIndex);
 
+        // Saltar caracteres no válidos
         while (nextIndex < gameLogic.EncodedText.Length && !char.IsLetter(gameLogic.EncodedText[nextIndex]))
         {
             nextIndex++;
         }
 
+        // Si el siguiente índice está dentro del rango, enfocar
         if (nextIndex < gameLogic.EncodedText.Length)
         {
-            char nextChar = gameLogic.EncodedText[nextIndex];
-            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{nextChar}').focus()");
+            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{nextIndex}').focus()");
         }
     }
 
-    private async Task MoveToPreviousInput(char currentChar)
+private async Task MoveToPreviousInput(int currentIndex)
+{
+    int previousIndex = currentIndex - 1;
+    JSRuntime.InvokeVoidAsync("console.log", currentIndex);
+
+    // Saltar caracteres no válidos
+    while (previousIndex >= 0 && !char.IsLetter(gameLogic.EncodedText[previousIndex]))
     {
-        int currentIndex = gameLogic.EncodedText.IndexOf(currentChar);
-        int previousIndex = currentIndex - 1;
-
-        while (previousIndex >= 0 && !char.IsLetter(gameLogic.EncodedText[previousIndex]))
-        {
-            previousIndex--;
-        }
-
-        if (previousIndex >= 0)
-        {
-            char previousChar = gameLogic.EncodedText[previousIndex];
-            await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{previousChar}').focus()");
-        }
+        previousIndex--;
     }
+
+    // Si el índice anterior está dentro del rango, enfocar
+    if (previousIndex >= 0)
+    {
+        await JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('input-{previousIndex}').focus()");
+    }
+}
+
 
     private void DebugGameState()
     {
